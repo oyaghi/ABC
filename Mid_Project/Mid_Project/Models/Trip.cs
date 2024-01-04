@@ -7,13 +7,18 @@ namespace Mid_Project.Models
     {
         [Key]
         public int trip_Id { get; set; }
+        [Required]
         public string destination { get; set; }
+        [Required]
         public DateTime start_Date { get; set; }
+        [Required]
         public DateTime end_Date { get; set; }
+        [Required]
         public int bus_Number { get; set; }
 
         // Many to one with Admin
         [ForeignKey("AdminID")]
+        [Required]
         public Admin Admin { get; set; }
 
         // Many to Many with passenger (one to Many with Trip_Passenger) 
