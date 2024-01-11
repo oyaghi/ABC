@@ -1,0 +1,43 @@
+﻿@model List<Mid_Project.Models.Trip_Buss>
+
+<h1>Trip Buss Details</h1>
+<a asp-action="Book">Book a Trip</a> 
+<table class="table">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>start_Date</th>
+            <th>end_Date</th>
+            <th>bus_Number</th>
+            <th>Actions</th>
+
+
+
+
+            <!-- Add other columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tripBuss in Model)
+        {
+            <tr>
+                <td>@tripBuss.trip.destination</td>
+                <td>@tripBuss.trip.start_Date</td>
+                <td>@tripBuss.trip.end_Date</td>
+                <td>@tripBuss.trip.bus_Number</td>
+                <td>
+                    <div>
+                        <form asp-action="Delete">
+                            <input type="hidden" name="ID" value="@tripBuss.trip.trip_Id" />
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </form>
+                    </div>
+                </td>
+
+
+                <!-- Add other columns' details as needed -->
+            </tr>
+        }
+    </tbody>
+</table>
+

@@ -14,6 +14,8 @@ namespace Mid_Project.Data
         public DbSet<Buss> buss { set; get; }
         public DbSet<Trip> trip { set; get; }
         public DbSet<Passenger> passenger { set; get; }
+        public DbSet<Trip_Buss> trip_buss { set; get;}
+        public DbSet<Trip_Passenger> trip_passenger { set; get;}
 
 
 

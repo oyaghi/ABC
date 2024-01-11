@@ -12,8 +12,8 @@ namespace Mid_Project.Models
         [Required]
         public int number_of_seats { get; set; }
 
-        // Many to Many with Trip
-        public ICollection<Trip> trip {  get; set; }
+        // Many to Many with Trip (one to Many with Trip_Buss)
+        public ICollection<Trip_Buss> trip_buss {  get; set; }
 
         // Many to one with Admin
         [ForeignKey("AdminID")]

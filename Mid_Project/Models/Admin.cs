@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Mid_Project.Models
 {
-    //[Index(nameof(Admin.username), IsUnique = true)]
+    [Index(nameof(Admin.username), IsUnique = true)]
 
     public class Admin
     {
