@@ -1,0 +1,30 @@
+﻿@model Mid_Project.Models.Buss
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Bus</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.captin_Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.captin_Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.number_of_seats)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.number_of_seats)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.bus_Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

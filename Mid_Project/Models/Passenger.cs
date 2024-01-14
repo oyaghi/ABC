@@ -24,6 +24,7 @@ namespace Mid_Project.Models
         public String gender { get; set; }
         [Required]
         public String username { get; set; }
+        [Required]
         public int phone { get; set; }
         [Required]
         public String password { get; set; }

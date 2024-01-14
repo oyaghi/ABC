@@ -59,7 +59,7 @@ namespace Mid_Project.Controllers
 
                     HttpContext.Session.SetInt32("adminID", admin.admin_Id);
 
-                    return RedirectToAction("Index", "Teams");
+                    return RedirectToAction("Index", "Admin");
                 }
                 else
                 {
@@ -73,6 +73,61 @@ namespace Mid_Project.Controllers
 
             }
             return View();
+        }
+
+
+
+        // new Mustafa Functions ---------------------------------------------------------------------------------------------------------
+
+        public bool CheckEmpty(Passenger passenger)
+        {
+            if (String.IsNullOrEmpty(passenger.name)) return false;
+            else if (string.IsNullOrEmpty(passenger.password)) return false;
+            else if (string.IsNullOrEmpty(passenger.username)) return false;
+            else if (string.IsNullOrEmpty(passenger.gender)) return false;
+            else if (string.IsNullOrEmpty(passenger.phone.ToString())) return false;
+            else if (string.IsNullOrEmpty(passenger.email)) return false;
+            else return true;
+
+        }
+
+        [HttpGet]
+        public IActionResult SignUp()
+        {
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult SignUp(Passenger passenger)
+        {
+            bool empty = CheckEmpty(passenger);
+
+
+            if (empty)
+            {
+                try {
+                    _context.passenger.Add(passenger);
+                    _context.SaveChanges();
+                    TempData["Msg"] = "the data was saved";
+
+                    return RedirectToAction("Login");
+                }
+                catch
+                {
+                    TempData["Msg"] = "The Username already exists";
+                    return View();
+                }
+                
+
+            }
+            else
+            {
+                TempData["Msg"] = "Fill all the fields";
+            }
+
+            return View();
+
         }
     }
 }

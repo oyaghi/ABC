@@ -1,0 +1,47 @@
+﻿@model List<Mid_Project.Models.Trip_Buss>
+
+<h1>Trip Buss Details</h1>
+<a asp-action="Create">Link trip to buss</a>
+<a asp-action="Index" asp-controller="Admin">Back</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Destination</th>
+            <th>start_Date</th>
+            <th>end_Date</th>
+            <th>bus_Number</th>
+            <th>Captin Name</th>
+            <th>Number of seats</th>
+            <th>Actions</th>
+
+
+
+
+            <!-- Add other columns as needed -->
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var tripBuss in Model)
+        {
+            <tr>
+                <td>@tripBuss.trip.destination</td>
+                <td>@tripBuss.trip.start_Date</td>
+                <td>@tripBuss.trip.end_Date</td>
+                <td>@tripBuss.trip.bus_Number</td>
+                <td>@tripBuss.buss.captin_Name</td>
+                <td>@tripBuss.buss.number_of_seats</td>
+
+
+                <td>
+                    <a asp-action="Edit" asp-route-id="@tripBuss.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@tripBuss.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@tripBuss.ID">Delete</a>
+                </td>
+
+                <!-- Add other columns' details as needed -->
+            </tr>
+        }
+    </tbody>
+</table>
+

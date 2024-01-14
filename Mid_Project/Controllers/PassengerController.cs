@@ -63,7 +63,7 @@ namespace Mid_Project.Controllers
             Trip_Passenger tp = new Trip_Passenger();
             int passengerId = (int)HttpContext.Session.GetInt32("PassengerId");
             tp.passenger = _context.passenger.Find(passengerId);
-            tp.trip= _context.trip.Find(id);
+            tp.trip = _context.trip.Find(id);
 
              var existingEntry = _context.trip_passenger
                     .FirstOrDefault(tp => tp.trip.trip_Id == id && tp.passenger.pass_Id == passengerId);
@@ -96,5 +96,10 @@ namespace Mid_Project.Controllers
             }
             return RedirectToAction("BookingList");
         }
+
+
+
+        // new Mustafa Functions ---------------------------------------------------------------------------------------------------------
+
     }
 }

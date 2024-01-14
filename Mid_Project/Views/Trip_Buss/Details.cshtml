@@ -1,0 +1,60 @@
+﻿@model Mid_Project.Models.Trip_Buss
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Delete</h1>
+
+<h3>@Model.trip.destination:@Model.buss.captin_Name</h3>
+<div>
+    <hr />
+   
+    <dl class="row">
+    </dl>
+
+    
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Destination</th>
+                <th>start_Date</th>
+                <th>end_Date</th>
+                <th>bus_Number</th>
+                <th>Captin Name</th>
+                <th>Number of seats</th>
+                <th>Actions</th>
+
+
+
+
+                <!-- Add other columns as needed -->
+            </tr>
+        </thead>
+        <tbody>
+            
+            
+                <tr>
+                <td>@Model.trip.destination</td>
+                <td>@Model.trip.start_Date</td>
+                <td>@Model.trip.end_Date</td>
+                <td>@Model.trip.bus_Number</td>
+                <td>@Model.buss.captin_Name</td>
+                <td>@Model.buss.number_of_seats</td>
+
+
+                    <td>
+                        <div>
+                            <a asp-action="Edit" asp-route-id="@Model?.ID">Edit</a> |
+                            <a asp-action="Index">Back to List</a>
+                        </div>
+                    </td>
+
+                    <!-- Add other columns' details as needed -->
+                </tr>
+            
+        </tbody>
+    </table>
+</div>

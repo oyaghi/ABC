@@ -1,0 +1,53 @@
+﻿@model Mid_Project.Models.Trip_Buss
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Trip Buss </h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label class="control-label"> Trip</label>
+                <select name="trip" id="trip">
+                    @for (int i = 0; i < ViewBag.Trip.Count; i++)
+                    {
+                        <option value="@ViewBag.Trip[i].trip_Id">
+                            @ViewBag.Trip[i].destination
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label"> BusNumber</label>
+                <select name="bus" id="bus">
+                    @for (int i = 0; i < ViewBag.Buss.Count; i++)
+                    {
+                        <option value="@ViewBag.Buss[i].bus_Id">
+                            @ViewBag.Buss[i].captin_Name
+                        </option>
+                    }
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Edit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
